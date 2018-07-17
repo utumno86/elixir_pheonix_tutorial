@@ -4,7 +4,7 @@ defmodule Cards do
     suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
 
     for value <- values, suit <- suits do
-        "#{value} of #{suit}"
+      "#{value} of #{suit}"
     end
   end
 
@@ -16,7 +16,12 @@ defmodule Cards do
     Enum.member?(deck, card)
   end
 
-  def deal(deck, hand_size)
+  def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
+  end
+
+  def save(deck, filename) do
+    binary = :erlang.term_to_binary(deck)
+    File.write(filename, binary)
   end
 end
