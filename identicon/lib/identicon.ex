@@ -7,6 +7,7 @@ defmodule Identicon do
     |> filter_odd_squares
     |> build_pixel_map
     |> draw_image
+    |> save_image(input)
   end
 
   def hash_input(input) do
@@ -65,6 +66,9 @@ defmodule Identicon do
     :egd.render(image)
   end
 
+  def save_image(image, input) do
+    File.write("#{input}.png", image)
+  end
 
   def mirror_row(row) do
    [first, second | _tail] = row
