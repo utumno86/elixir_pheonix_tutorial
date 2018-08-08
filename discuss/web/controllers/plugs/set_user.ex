@@ -7,7 +7,6 @@ defmodule Discuss.Plugs.SetUser do
   alias Discuss.Router.Helpers
 
   def init(_params) do
-
   end
 
   def call(conn, _params) do
